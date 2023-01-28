@@ -32,11 +32,10 @@ model Command {
   platform  Platform  @default(UNIX)
   content   String    @db.Text
   image     String?   @db.VarChar(255)
-  isAactive Boolean   @default(false) @map("is_active")
+  isActive Boolean   @default(false) @map("is_active")
   parentId  Int?      @map("parent_id")
   children  Command[] @relation(name: "self")
-  parent    Command?  @relation(name: "self", fields: [commandId], references: [id])
-  commandId Int?      @map("command_id")
+  parent    Command?  @relation(name: "self", fields: [parentId], references: [id])
 
   @@map("commands")
 }
