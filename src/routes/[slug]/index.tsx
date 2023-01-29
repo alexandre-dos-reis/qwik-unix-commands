@@ -6,5 +6,5 @@ export const getCommand = loader$((req) => getCommandBySlug(req.params.slug));
 
 export default component$(() => {
   const { value: command } = getCommand.use();
-  return <div>{command?.title}</div>;
+  return <h1 class="text-center">{command?.title}</h1>;
 });
