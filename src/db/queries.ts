@@ -12,6 +12,9 @@ export const getNavCommands = async () => {
       title: true,
       tab: true,
     },
+    orderBy: {
+      sort: "asc",
+    },
   });
 };
 
@@ -22,6 +25,16 @@ export const getCommandBySlug = async (slug: string) => {
     },
     select: {
       title: true,
+      children: {
+        orderBy: {
+          sort: "asc",
+        },
+        select: {
+          id: true,
+          title: true,
+          sort: true,
+        },
+      },
     },
   });
 };

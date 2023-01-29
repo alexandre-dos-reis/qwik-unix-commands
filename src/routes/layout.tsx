@@ -12,7 +12,7 @@ export default component$(() => {
       <ToggleDarkMode />
       <header></header>
       <main>
-        <ul>
+        <ul class="flex flex-wrap gap-5">
           {commands.map((c) => (
             <li>
               <Link href={`/${c.slug}`}>{c.title}</Link>

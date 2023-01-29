@@ -10,8 +10,9 @@
     "docker:down": "docker-compose --env-file .env -f docker/qwik-unix-commands/compose.yml down",
     "db:migration:create": "pnpm exec prisma migrate dev",
     "db:migration:migrate": "pnpm exec prisma migrate deploy",
+    "db:legacy:populate": "pnpm db:reset && tsx ./scripts/fetch-and-populate-db.ts",
+    "db:reset": "pnpm exec prisma migrate reset --force --skip-seed",
     "prisma:generate": "pnpm exec prisma generate",
-    "legacy:populate": "tsx ./legacy/fetch-and-populate-db.ts",
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
@@ -39,6 +40,7 @@
     "dotenv": "^16.0.3",
     "eslint": "8.31.0",
     "eslint-plugin-qwik": "0.16.2",
+    "graphql": "^16.6.0",
     "graphql-request": "^5.1.0",
     "node-fetch": "3.3.0",
     "postcss": "^8.4.16",
@@ -54,6 +56,7 @@
   "dependencies": {
     "@material-symbols/svg-400": "^0.4.2",
     "@prisma/client": "^4.9.0",
-    "@svgx/vite-plugin-qwik": "^1.0.1"
+    "@svgx/vite-plugin-qwik": "^1.0.1",
+    "zod": "^3.20.2"
   }
 }

@@ -23,19 +23,20 @@ enum Platform {
 }
 
 model Command {
-  id        Int       @id @default(autoincrement())
-  title     String    @db.VarChar(64)
-  slug      String?   @unique @db.VarChar(64)
-  tab       String?   @db.VarChar(64)
-  env       String    @default("$") @db.VarChar(32)
-  type      Type?
-  platform  Platform  @default(UNIX)
-  content   String    @db.Text
-  image     String?   @db.VarChar(255)
+  id       Int       @id @default(autoincrement())
+  title    String    @db.VarChar(64)
+  slug     String?   @unique @db.VarChar(64)
+  tab      String?   @db.VarChar(64)
+  env      String    @default("$") @db.VarChar(32)
+  sort     Int?
+  type     Type?
+  platform Platform  @default(UNIX)
+  content  String    @db.Text
+  image    String?   @db.VarChar(255)
   isActive Boolean   @default(false) @map("is_active")
-  parentId  Int?      @map("parent_id")
-  children  Command[] @relation(name: "self")
-  parent    Command?  @relation(name: "self", fields: [parentId], references: [id])
+  parentId Int?      @map("parent_id")
+  children Command[] @relation(name: "self")
+  parent   Command?  @relation(name: "self", fields: [parentId], references: [id])
 
   @@map("commands")
 }

@@ -16,6 +16,7 @@ specifiers:
   dotenv: ^16.0.3
   eslint: 8.31.0
   eslint-plugin-qwik: 0.16.2
+  graphql: ^16.6.0
   graphql-request: ^5.1.0
   node-fetch: 3.3.0
   postcss: ^8.4.16
@@ -27,11 +28,13 @@ specifiers:
   undici: 5.14.0
   vite: 4.0.3
   vite-tsconfig-paths: 3.5.0
+  zod: ^3.20.2
 
 dependencies:
   '@material-symbols/svg-400': 0.4.2
   '@prisma/client': 4.9.0_prisma@4.9.0
   '@svgx/vite-plugin-qwik': 1.0.1_@types+node@18.11.18
+  zod: 3.20.2
 
 devDependencies:
   '@builder.io/qwik': 0.16.2_undici@5.14.0
@@ -46,7 +49,8 @@ devDependencies:
   dotenv: 16.0.3
   eslint: 8.31.0
   eslint-plugin-qwik: 0.16.2_eslint@8.31.0
-  graphql-request: 5.1.0
+  graphql: 16.6.0
+  graphql-request: 5.1.0_graphql@16.6.0
   node-fetch: 3.3.0
   postcss: 8.4.21
   prettier: 2.8.1
@@ -320,10 +324,12 @@ packages:
       - supports-color
     dev: true
 
-  /@graphql-typed-document-node/core/3.1.1:
+  /@graphql-typed-document-node/core/3.1.1_graphql@16.6.0:
     resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
     dev: true
 
   /@humanwhocodes/config-array/0.11.8:
@@ -1690,17 +1696,23 @@ packages:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
     dev: true
 
-  /graphql-request/5.1.0:
+  /graphql-request/5.1.0_graphql@16.6.0:
     resolution: {integrity: sha512-0OeRVYigVwIiXhNmqnPDt+JhMzsjinxHE7TVy3Lm6jUzav0guVcL0lfSbi6jVTRAxcbwgyr6yrZioSHxf9gHzw==}
     peerDependencies:
       graphql: 14 - 16
     dependencies:
-      '@graphql-typed-document-node/core': 3.1.1
+      '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
       cross-fetch: 3.1.5
       extract-files: 9.0.0
       form-data: 3.0.1
+      graphql: 16.6.0
     transitivePeerDependencies:
       - encoding
+    dev: true
+
+  /graphql/16.6.0:
+    resolution: {integrity: sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
     dev: true
 
   /has-flag/4.0.0:
@@ -3243,6 +3255,10 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zod/3.20.2:
+    resolution: {integrity: sha512-1MzNQdAvO+54H+EaK5YpyEy0T+Ejo/7YLHS93G3RnYWh5gaotGHwGeN/ZO687qEDU2y4CdStQYXVHIgrUl5UVQ==}
+    dev: false
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

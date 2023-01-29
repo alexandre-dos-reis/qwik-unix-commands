@@ -6,5 +6,14 @@ export const getCommand = loader$((req) => getCommandBySlug(req.params.slug));
 
 export default component$(() => {
   const { value: command } = getCommand.use();
-  return <h1 class="text-center">{command?.title}</h1>;
+  return (
+    <>
+      <h1 class="text-center">{command?.title}</h1>
+      <ul>
+        {command?.children.map((c) => (
+          <li>{c.sort} {c.title}</li>
+        ))}
+      </ul>
+    </>
+  );
 });
