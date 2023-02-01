@@ -11,11 +11,11 @@ export default component$(() => {
     <>
       <ToggleDarkMode />
       <header></header>
-      <main>
-        <ul class="flex flex-wrap gap-5">
+      <main class="px-5">
+        <ul class="flex flex-wrap gap-5 mb-5">
           {commands.map((c) => (
             <li>
-              <Link href={`/${c.slug}`}>{c.title}</Link>
+              <Link href={`/${c.slug}`}>{c.tab}</Link>
             </li>
           ))}
         </ul>

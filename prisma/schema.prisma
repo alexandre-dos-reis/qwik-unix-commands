@@ -24,10 +24,10 @@ enum Platform {
 
 model Command {
   id       Int       @id @default(autoincrement())
-  title    String    @db.VarChar(64)
-  slug     String?   @unique @db.VarChar(64)
-  tab      String?   @db.VarChar(64)
-  env      String    @default("$") @db.VarChar(32)
+  title    String    @db.VarChar(255)
+  slug     String?   @unique @db.VarChar(255)
+  tab      String?   @db.VarChar(255)
+  env      String    @default("$") @db.VarChar(255)
   sort     Int?
   type     Type?
   platform Platform  @default(UNIX)

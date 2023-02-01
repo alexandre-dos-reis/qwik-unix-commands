@@ -5,11 +5,15 @@ export const getNavCommands = async () => {
     where: {
       parentId: null,
       isActive: true,
+      NOT: {
+        children: {
+          none: {},
+        },
+      },
     },
     select: {
       id: true,
       slug: true,
-      title: true,
       tab: true,
     },
     orderBy: {
@@ -19,9 +23,15 @@ export const getNavCommands = async () => {
 };
 
 export const getCommandBySlug = async (slug: string) => {
-  return await db.command.findUnique({
+  return await db.command.findFirst({
     where: {
       slug,
+      isActive: true,
+      NOT: {
+        children: {
+          none: {},
+        },
+      },
     },
     select: {
       title: true,
@@ -33,6 +43,7 @@ export const getCommandBySlug = async (slug: string) => {
           id: true,
           title: true,
           sort: true,
+          content: true,
         },
       },
     },
