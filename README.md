@@ -9,6 +9,8 @@
 
 ## Static Site Generator (Node.js)
 
+Just run: 
+
 ```
-pnpm build.server
+pnpm build
 ```
