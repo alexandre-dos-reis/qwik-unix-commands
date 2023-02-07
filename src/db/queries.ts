@@ -1,7 +1,7 @@
-import { db } from "./db";
+import { prisma } from "./db";
 
 export const getNavCommands = async () => {
-  return await db.command.findMany({
+  return await prisma.command.findMany({
     where: {
       parentId: null,
       isActive: true,
@@ -23,7 +23,7 @@ export const getNavCommands = async () => {
 };
 
 export const getCommandBySlug = async (slug: string) => {
-  return await db.command.findFirst({
+  return await prisma.command.findFirst({
     where: {
       slug,
       isActive: true,
